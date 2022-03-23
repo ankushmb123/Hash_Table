@@ -7,26 +7,25 @@ using System.Threading.Tasks;
 namespace HashTable
 {
     // Created a Node class to access the data in the linked list
-    public class MyNode<K, V>
+    public class MyMapNode<K, V>
     {
         private readonly int size;
         private readonly LinkedList<KeyValue<K, V>>[] items;
 
-        public MyNode(int size)
+        public MyMapNode(int size)
         {
             this.size = size;
             this.items = new LinkedList<KeyValue<K, V>>[size];
         }
 
         // Gets a unique array items[] position for entered key.
-       
+      
         protected int GetPositionInArray(K key)
         {
-        // Returns a unique position to each different key
+            // Returns a unique position to each different key
             return Math.Abs(key.GetHashCode() % size);
         }
-        // Gets the linked list present at the entered position in the items[] array
-        
+        /// Gets the linked list present at the entered position in the items[] array
         protected LinkedList<KeyValue<K, V>> LinkedListBuilder(int position)
         {
             var linkedList = items[position];
@@ -40,6 +39,7 @@ namespace HashTable
         }
 
         // Adds the specified key,value pair at the end of the linked list present at the position corresponding to the key.
+       
         public void AddValue(K key, V value)
         {
             // Gets the position to the key
@@ -50,6 +50,7 @@ namespace HashTable
             // Adds the key-value pair at the end of the linked list
             linkedList.AddLast(item);
         }
+
         public V GetValue(K key)
         {
             int position = GetPositionInArray(key);

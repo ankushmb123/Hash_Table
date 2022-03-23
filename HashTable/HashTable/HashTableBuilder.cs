@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HashTable
 {
-    public class HashTableBuilder
+    class HashTableBuilder
     {
         // Senetnce property
         // Adding key/value pair in the hashtable
@@ -15,11 +15,11 @@ namespace HashTable
         // key present or not
         // using Contains method
         public string WordToCheck { get; set; } = "be";
-        /// Adds the splitPhrase into the map.
+        // Adds the splitPhrase into the map.
         public int FindFrequencyOfWord()
         {
             string[] words = Sentence.Split(' ');
-            MyNode<string, int> map = new MyNode<string, int>(10);
+            MyMapNode<string, int> map = new MyMapNode<string, int>(10);
             // for each loop
             foreach (string word in words)
             {
